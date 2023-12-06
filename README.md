@@ -1,122 +1,234 @@
 {
  "cells": [
+ 
   {
+  
    "cell_type": "markdown",
+   
    "id": "5803d41f",
+   
    "metadata": {},
+   
    "source": [
+   
     "# Import Necessary Libraries "
+    
    ]
+   
   },
+  
   {
    "cell_type": "code",
+   
    "execution_count": 1,
+   
    "id": "ce0e0753",
+   
    "metadata": {},
+   
    "outputs": [],
+   
    "source": [
+   
     "import numpy as np  #linear algebra\n",
+    
     "import pandas as pd  #data processing "
+    
    ]
+   
   },
+  
   {
+  
    "cell_type": "markdown",
+   
    "id": "d6b68367",
+   
    "metadata": {},
+   
    "source": [
+   
     "# Reading CSV File"
+    
    ]
   },
+  
   {
    "cell_type": "code",
+   
    "execution_count": 2,
+   
    "id": "3b4f31a2",
+   
    "metadata": {},
+   
    "outputs": [],
+   
    "source": [
+   
     "df=pd.read_csv(\"Advertising.csv\")  #read dataset"
+    
    ]
+   
   },
+  
   {
+  
    "cell_type": "code",
+   
    "execution_count": 3,
+   
    "id": "20cdff1e",
+   
    "metadata": {},
+   
    "outputs": [
+   
     {
      "data": {
+     
       "text/html": [
+      
        "<div>\n",
+       
        "<style scoped>\n",
+       
        "    .dataframe tbody tr th:only-of-type {\n",
+       
        "        vertical-align: middle;\n",
+       
        "    }\n",
+       
        "\n",
+       
        "    .dataframe tbody tr th {\n",
+       
        "        vertical-align: top;\n",
+       
        "    }\n",
+       
        "\n",
+       
        "    .dataframe thead th {\n",
+       
        "        text-align: right;\n",
+       
        "    }\n",
+       
        "</style>\n",
+       
        "<table border=\"1\" class=\"dataframe\">\n",
+       
        "  <thead>\n",
+       
        "    <tr style=\"text-align: right;\">\n",
+       
        "      <th></th>\n",
+       
        "      <th>Unnamed: 0</th>\n",
+       
        "      <th>TV</th>\n",
+       
        "      <th>Radio</th>\n",
+       
        "      <th>Newspaper</th>\n",
+       
        "      <th>Sales</th>\n",
+       
        "    </tr>\n",
+       
        "  </thead>\n",
+       
        "  <tbody>\n",
+       
        "    <tr>\n",
+       
        "      <th>0</th>\n",
+       
        "      <td>1</td>\n",
+       
        "      <td>230.1</td>\n",
+       
        "      <td>37.8</td>\n",
+       
        "      <td>69.2</td>\n",
+       
        "      <td>22.1</td>\n",
+       
        "    </tr>\n",
+       
        "    <tr>\n",
+       
        "      <th>1</th>\n",
+       
        "      <td>2</td>\n",
+       
        "      <td>44.5</td>\n",
+       
        "      <td>39.3</td>\n",
+       
        "      <td>45.1</td>\n",
+       
        "      <td>10.4</td>\n",
+       
        "    </tr>\n",
+       
        "    <tr>\n",
+       
        "      <th>2</th>\n",
+       
        "      <td>3</td>\n",
+       
        "      <td>17.2</td>\n",
+       
        "      <td>45.9</td>\n",
+       
        "      <td>69.3</td>\n",
+       
        "      <td>9.3</td>\n",
        "    </tr>\n",
+       
        "    <tr>\n",
+       
        "      <th>3</th>\n",
+       
        "      <td>4</td>\n",
+       
        "      <td>151.5</td>\n",
+       
        "      <td>41.3</td>\n",
+       
        "      <td>58.5</td>\n",
+       
        "      <td>18.5</td>\n",
+       
        "    </tr>\n",
+       
        "    <tr>\n",
+       
        "      <th>4</th>\n",
+       
+       
        "      <td>5</td>\n",
        "      <td>180.8</td>\n",
+       
        "      <td>10.8</td>\n",
+       
        "      <td>58.4</td>\n",
+       
        "      <td>12.9</td>\n",
+       
        "    </tr>\n",
+       
        "  </tbody>\n",
+       
        "</table>\n",
+       
        "</div>"
+       
       ],
       "text/plain": [
+      
        "   Unnamed: 0     TV  Radio  Newspaper  Sales\n",
        "0           1  230.1   37.8       69.2   22.1\n",
        "1           2   44.5   39.3       45.1   10.4\n",
@@ -125,94 +237,181 @@
        "4           5  180.8   10.8       58.4   12.9"
       ]
      },
+     
      "execution_count": 3,
+     
      "metadata": {},
+     
      "output_type": "execute_result"
+     
     }
    ],
    "source": [
+   
     "df.head()  #returns first 5 entries"
+    
    ]
   },
   {
    "cell_type": "code",
+   
    "execution_count": 4,
+   
    "id": "0398f5f8",
+   
    "metadata": {},
+   
    "outputs": [
+   
     {
+    
      "data": {
+     
       "text/html": [
+      
        "<div>\n",
+       
+       
        "<style scoped>\n",
        "    .dataframe tbody tr th:only-of-type {\n",
+       
        "        vertical-align: middle;\n",
+       
        "    }\n",
+       
        "\n",
+
+       
        "    .dataframe tbody tr th {\n",
+       
        "        vertical-align: top;\n",
+       
        "    }\n",
+       
        "\n",
+       
+       /
        "    .dataframe thead th {\n",
        "        text-align: right;\n",
+       
+       /
        "    }\n",
        "</style>\n",
+       
        "<table border=\"1\" class=\"dataframe\">\n",
+       
        "  <thead>\n",
+       
        "    <tr style=\"text-align: right;\">\n",
+       
        "      <th></th>\n",
+       
        "      <th>Unnamed: 0</th>\n",
+       
        "      <th>TV</th>\n",
+       
        "      <th>Radio</th>\n",
+       
        "      <th>Newspaper</th>\n",
+       
        "      <th>Sales</th>\n",
+       
        "    </tr>\n",
+       
        "  </thead>\n",
+       
        "  <tbody>\n",
+       
        "    <tr>\n",
+       
        "      <th>195</th>\n",
+       
        "      <td>196</td>\n",
+
+       
        "      <td>38.2</td>\n",
+       
        "      <td>3.7</td>\n",
+       
        "      <td>13.8</td>\n",
+       
        "      <td>7.6</td>\n",
+       
        "    </tr>\n",
+       
        "    <tr>\n",
+       
        "      <th>196</th>\n",
+       
        "      <td>197</td>\n",
+       
        "      <td>94.2</td>\n",
+       
        "      <td>4.9</td>\n",
+       
        "      <td>8.1</td>\n",
+       
        "      <td>9.7</td>\n",
+       
        "    </tr>\n",
+       
        "    <tr>\n",
+       
        "      <th>197</th>\n",
+       
        "      <td>198</td>\n",
+       
        "      <td>177.0</td>\n",
+       
        "      <td>9.3</td>\n",
+       
+       
        "      <td>6.4</td>\n",
        "      <td>12.8</td>\n",
+       
        "    </tr>\n",
+       
        "    <tr>\n",
+       
        "      <th>198</th>\n",
+       
        "      <td>199</td>\n",
+       
        "      <td>283.6</td>\n",
+       
        "      <td>42.0</td>\n",
+
+       
        "      <td>66.2</td>\n",
+       
        "      <td>25.5</td>\n",
+       
        "    </tr>\n",
+       
        "    <tr>\n",
+       
        "      <th>199</th>\n",
+       
        "      <td>200</td>\n",
+       
        "      <td>232.1</td>\n",
+       
        "      <td>8.6</td>\n",
+       
        "      <td>8.7</td>\n",
+       
        "      <td>13.4</td>\n",
+       
        "    </tr>\n",
+       
        "  </tbody>\n",
+       
        "</table>\n",
+       
        "</div>"
+       
       ],
+      
       "text/plain": [
        "     Unnamed: 0     TV  Radio  Newspaper  Sales\n",
        "195         196   38.2    3.7       13.8    7.6\n",
@@ -222,92 +421,175 @@
        "199         200  232.1    8.6        8.7   13.4"
       ]
      },
+     
      "execution_count": 4,
+     
      "metadata": {},
+     
      "output_type": "execute_result"
+     
     }
    ],
    "source": [
     "df.tail()  #returns last 5 entries"
+    
    ]
   },
+  
   {
+  
    "cell_type": "code",
+   
    "execution_count": 5,
+   
    "id": "2744cac3",
+   
    "metadata": {},
+   
    "outputs": [
+   
     {
+    
      "data": {
+     
       "text/plain": [
+      
        "(200, 5)"
+       
       ]
+      
      },
+     
      "execution_count": 5,
+     
      "metadata": {},
+     
      "output_type": "execute_result"
+     
     }
+    
    ],
+   
    "source": [
+   
     "#returns tuple of shape (Rows, columns) of dataframe\n",
+    
     "df.shape"
+    
    ]
+   
   },
+  
   {
-   "cell_type": "code",
+  
+  / "cell_type": "code",
+  
    "execution_count": 6,
+   
    "id": "9171bd17",
+   
+
+   
    "metadata": {},
+   
    "outputs": [
+   
     {
+    
      "name": "stdout",
+     
      "output_type": "stream",
+     
      "text": [
+     
       "<class 'pandas.core.frame.DataFrame'>\n",
+      
       "RangeIndex: 200 entries, 0 to 199\n",
+      
       "Data columns (total 5 columns):\n",
+      
       " #   Column      Non-Null Count  Dtype  \n",
+      
       "---  ------      --------------  -----  \n",
+      
       " 0   Unnamed: 0  200 non-null    int64  \n",
+      
       " 1   TV          200 non-null    float64\n",
+      
       " 2   Radio       200 non-null    float64\n",
+      
       " 3   Newspaper   200 non-null    float64\n",
+      
       " 4   Sales       200 non-null    float64\n",
+      
       "dtypes: float64(4), int64(1)\n",
+      
       "memory usage: 7.9 KB\n"
+      
      ]
+     
     }
    ],
+   
    "source": [
+   
     "#prints information about the dataframe\n",
+    
     "df.info()"
+    
    ]
+   
   },
+  
   {
+  
    "cell_type": "code",
+   
    "execution_count": 7,
+   
+   
    "id": "9a65def3",
    "metadata": {},
+   
    "outputs": [
+   
     {
      "data": {
+     
       "text/html": [
+      
        "<div>\n",
+       
        "<style scoped>\n",
+       
        "    .dataframe tbody tr th:only-of-type {\n",
+       
        "        vertical-align: middle;\n",
+       
        "    }\n",
+       
        "\n",
+       
        "    .dataframe tbody tr th {\n",
+       
        "        vertical-align: top;\n",
+       
        "    }\n",
+       
        "\n",
+       
        "    .dataframe thead th {\n",
+       
        "        text-align: right;\n",
+       
        "    }\n",
+       
        "</style>\n",
+       
        "<table border=\"1\" class=\"dataframe\">\n",
+       
        "  <thead>\n",
+       
        "    <tr style=\"text-align: right;\">\n",
        "      <th></th>\n",
        "      <th>Unnamed: 0</th>\n",
